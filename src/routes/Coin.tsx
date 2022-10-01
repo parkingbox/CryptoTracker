@@ -67,12 +67,15 @@ const Tab = styled.span<{ isActive: boolean }>`
   padding: 7px 0px;
   border-radius: 10px;
   color: ${(props) =>
-    props.isActive ? props.theme.accentColor : props.theme.textColor};
+    props.isActive ? props.theme.accentColor : props.theme.accentColor};
   a {
     display: block;
   }
 `;
 
+interface ICoinProps {
+  isDark: boolean;
+}
 
 interface RouterState {
     name: string;
@@ -132,7 +135,7 @@ interface PriceData {
   };
 }
 
-function Coin() {
+function Coin({isDark}: ICoinProps) {
   const { coinId } = useParams();
   const { state } = useLocation();
   const chartMatch = useMatch("/:coinId/chart");
@@ -188,7 +191,7 @@ function Coin() {
             </OverviewItem>
             <OverviewItem>
               <span>Price:</span>
-              <span>{tickersData?.quotes.USD.price}</span>
+              <span>{tickersData?.quotes?.USD?.price}</span>
             </OverviewItem>
           </Overview>
           <Description>{infoData?.description}</Description>
@@ -205,7 +208,7 @@ function Coin() {
 
           <Routes>
             <Route path={`/${coinId}/price`} element={<Price/>}></Route>
-            <Route path={`/${coinId}/chart`} element={<Chart coinId={coinId!}/>}></Route>
+            <Route path={`/${coinId}/chart`} element={<Chart isDark={isDark}coinId={coinId!}/>}></Route>
           </Routes>
           <Tabs>
             <Tab isActive={chartMatch !== null}>
