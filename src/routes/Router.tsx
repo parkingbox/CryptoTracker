@@ -1,8 +1,8 @@
 import {BrowserRouter, Route, Routes, } from 'react-router-dom';
-import Coin from "./routes/Coin"
-import Coins from "./routes/Coins"
-import Chart from "./routes/Chart"
-import Price from "./routes/Price"
+import Coin from "./Coin"
+import Coins from "./Coins"
+import Chart from "./Chart"
+import Price from "./Price"
 
 interface IRouterProps {
   

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
-import { fetchCoins } from './api';
+import { fetchCoins } from '../api';
 import { Helmet } from 'react-helmet';
 import { isDarkAtom } from '../atoms';
 import { useSetRecoilState } from "recoil";
