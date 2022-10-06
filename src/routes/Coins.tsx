@@ -20,13 +20,22 @@ const Header = styled.header`
   align-items: center;
 `
 const CoinsList = styled.ul`
-  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  justify-content: center;
+
+  @media only screen and (max-width: 430px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 `
 const Coin = styled.li`
-  background-color: white;
+  background-color: whitesmoke;
+  width: 300px;
   color: ${(props) =>props.theme.textColor};
-  
   border-radius: 15px;
+  margin-left: 20px;
   margin-bottom: 10px;
   a{
     display: flex;
@@ -43,6 +52,7 @@ const Coin = styled.li`
 const Title = styled.h1`
   font-size: 48px;
   color: ${(props) => props.theme.accentColor};
+  position: fixed;
 `;
 
 const Loader = styled.span`
@@ -54,6 +64,16 @@ const Img = styled.img`
   height: 35px;
   margin-right: 10px;
 `
+const Button = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid ;
+  background-color: #2F3640;
+  cursor: pointer;
+  margin-left: 300px;
+`
+
 interface ICoin {
   id: string,
   name: string,
@@ -77,14 +97,14 @@ function Coins() {
       <title>코인</title>
     </Helmet>
     <Header>
-      <Title>코인</Title>
-      <button onClick={toggleDarkAtom}>Toggle Mode</button>
+      <Title>Coingate</Title>
+    <Button onClick={toggleDarkAtom}><i className="fa-solid fa-moon"></i></Button>
     </Header>
     {isLoading ? (
       <Loader>Loading...</Loader>
     ) : (
       <CoinsList>
-        {data?.slice(0, 20).map((coin)=> (
+        {data?.slice(0, 30).map((coin)=> (
           <Coin key={coin.id}>
             <Link
               to={`/${coin.id}`}

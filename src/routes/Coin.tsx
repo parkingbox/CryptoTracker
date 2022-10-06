@@ -20,12 +20,10 @@ const Header = styled.header`
   justify-content: center;
   align-items: center;
 `
-
 const Title = styled.h1`
   font-size: 48px;
   color: ${(props) => props.theme.accentColor};
 `;
-
 const Loader = styled.span`
   text-align: center;
   display: block;
@@ -36,6 +34,7 @@ const Overview = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
   border-radius: 10px;
+  color: white;
 `;
 const OverviewItem = styled.div`
   display: flex;
@@ -51,14 +50,13 @@ const OverviewItem = styled.div`
 const Description = styled.p`
   margin: 20px 0px;
 `;
-
 const Tabs = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: 25px 0px;
   gap: 10px;
 `;
-const Tab = styled.span<{ isActive: boolean }>`
+const Tab = styled.span<{ isActive?: boolean }>`
   text-align: center;
   text-transform: uppercase;
   font-size: 12px;
@@ -70,6 +68,10 @@ const Tab = styled.span<{ isActive: boolean }>`
     props.isActive ? props.theme.accentColor : props.theme.accentColor};
   a {
     display: block;
+    transition: all 0.2s ease-in;
+    &:hover {
+      color: ${props => props.theme.accentColor};
+    }
   }
 `;
 
@@ -197,6 +199,9 @@ function Coin({}: ICoinProps) {
             </Tab>
             <Tab isActive={priceMatch !== null}>
               <Link to={`/${coinId}/price`}>Price</Link>
+            </Tab>
+            <Tab>
+              <Link to={'/'}>Home</Link>
             </Tab>
           </Tabs>
           <Outlet/>
