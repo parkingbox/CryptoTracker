@@ -10,4 +10,3 @@ export const lightTheme:DefaultTheme = {
   textColor: "black",
   accentColor: "#8C8072",
 }
-

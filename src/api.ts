@@ -1,32 +1,13 @@
-const BASE_URL = `https://api.coinpaprika.com/v1`
+const BASE_URL = `https://api.bithumb.com/public/`;
 
-export function fetchCoins() {
-  return fetch(
-    `${BASE_URL}/coins`
-    ).then(response =>
-      response.json()
-  )
-}
+export const bithumbCoins = async () => {
+  return await (await fetch(`${BASE_URL}/ticker/ALL_KRW`)).json();
+};
 
-export function fetchCoinInfo(coinId:string|undefined) {
-  return fetch(
-    `${BASE_URL}/coins/${coinId}`
-    ).then(response =>
-      response.json()
-  )
-}
-export function fetchCoinTickers(coinId:string|undefined) {
-  return fetch(
-    `${BASE_URL}/tickers/${coinId}`
-    ).then(response =>
-      response.json()
-  )
-}
+export const bithumbCoinInfo = async (coinId: string) => {
+  return await (await fetch(`${BASE_URL}/ticker/${coinId}_KRW`)).json();
+};
 
-export function fetchCoinHistory(coinId:string) {
-  return fetch(
-    `https://ohlcv-api.nomadcoders.workers.dev?coinId=${coinId}`
-    ).then((response) =>
-      response.json());
-}
-
+export const bithumbCandlestick = async (coinId: string) => {
+  return await (await fetch(`${BASE_URL}/candlestick/${coinId}_KRW`)).json();
+};
