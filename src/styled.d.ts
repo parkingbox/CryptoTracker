@@ -3,8 +3,28 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    textColor: string;
-    bgColor: string;
-    accentColor: string;
+    color: {
+      text: {
+        lv1: string;
+        lv2: string;
+      };
+      bg: {
+        lv1: string;
+        lv2: string;
+        lv3: string;
+      };
+      accent: {
+        high: string;
+        low: string;
+      };
+      grey: {
+        lv1: string;
+        lv2: string;
+      };
+      mode: {
+        lv1: string;
+        lv2: string;
+      };
+    };
   }
 }
