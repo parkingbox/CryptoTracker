@@ -32,9 +32,7 @@ const GlobalStyle = createGlobalStyle`
 	footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
-	body {
-		line-height: 1;
-	}
+
 	ol, ul {
 		list-style: none;
 	}
@@ -51,18 +49,53 @@ const GlobalStyle = createGlobalStyle`
 		border-spacing: 0;
 	}
 	* {
-	  box-sizing: border-box;
-	}
-	body {
-	  font-family: 'Source Sans Pro', sans-serif;
-	  background-color: ${(props) => props.theme.color.bg.lv1};
-	  color: ${(props) => props.theme.color.text.lv1};
-	}
-	a {
-	  text-decoration: none;
-		color:inherit;
-	}
-	`;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  font-family: 'Pretendard', sans-serif;
+}
+body{
+	line-height: 1;
+ 	background-color: ${(props) => props.theme.color.bg.lv1};
+ 	color: ${(props) => props.theme.color.text.lv1}
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  background-color: inherit;
+  color:inherit;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+input {
+  &:focus {
+    outline:none;
+  }
+}
+.ir {
+  position: absolute;
+  clip: rect(0,0,0,0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow:hidden;
+}
+.hide {
+  display: none;
+}
+`;
+
 
 function App() {
   const isDark = useRecoilValue(isDarkAtom);
