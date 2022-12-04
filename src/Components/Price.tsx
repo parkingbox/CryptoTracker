@@ -4,6 +4,14 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { bithumbCoinInfo } from "../api";
 
+const Loading = styled.span`
+  font-size: 32px;
+  text-align: center;
+  display: block;
+  margin-top: 50px;
+`;
+
+
 export const Wrapper = styled.div`
   min-width: 800px;
   display: flex;
@@ -26,8 +34,8 @@ const Container = styled.div`
   background-color: black;
 `
 export const Title = styled.h2`
-  font-size: 30px;
-  color: ${(props) => props.theme.color.text.lv2};
+  font-size: 20px;
+  color: white;
 `;
 
 export const NowPrice = styled.div`
@@ -107,20 +115,21 @@ export const Price = () => {
   const { coinId } = useParams();
 
   // 코인 정보
-  const { isLoading: infoLoading, data: info } = useQuery<ICoins>(
+  const { isLoading: isLoading, data: info } = useQuery<ICoins>(
     [("CoinPrice"), coinId],
     () => bithumbCoinInfo(`${coinId}`),
-    { staleTime: 1000, refetchInterval: 1000 }
+    { refetchInterval: 1000 }
   );
   let refValue =
     (Number(info?.data.closing_price) - Number(info?.data.prev_closing_price)) /
     Number(info?.data.prev_closing_price);
 
   let fluctateRefValue = Number(info?.data.fluctate_24H);
-
-  if (infoLoading) return <div>isLoading...</div>;
-
   return (
+    <>
+    {isLoading ? (
+      <Loading>Loading...</Loading>
+    ) : (
     <Wrapper>
         <NowPrice className={refValue > 0 ? "high" : "low"}>
           <Title>
@@ -183,5 +192,7 @@ export const Price = () => {
           </PriceCategory>
         </PriceView>
     </Wrapper>
+    )}
+    </>
   );
 };
