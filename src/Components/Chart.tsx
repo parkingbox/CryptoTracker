@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 0 auto;
+  height: 556px;
 `;
 
 const Chart = () => {
@@ -30,7 +31,7 @@ const Chart = () => {
         <>
           <ApexChart
             width="760px"
-            type="area"
+            type="line"
             series={[
               {
                 name: "거래량",
@@ -47,7 +48,9 @@ const Chart = () => {
                 background: "transparent",
               },
               dataLabels: { enabled: false },
-              stroke: { curve: "smooth" },
+              markers: {
+                size:0
+              },
               xaxis: { type: "datetime" },
               yaxis: {
                 opposite: true,
