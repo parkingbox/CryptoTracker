@@ -6,8 +6,8 @@ export const ModeBtn = styled.button`
   background-color: ${(props) => props.theme.color.bg.lv2};
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
   height: 30px;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.4rem;
+  width: 50px;
+  font-size: 17px;
   transition: all 0.2s ease-in-out;
   outline: 2px solid #619ef9;
   cursor: pointer;
