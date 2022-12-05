@@ -96,7 +96,6 @@ input {
 }
 `;
 
-
 function App() {
   const isDark = useRecoilValue(isDarkAtom);
   return (
@@ -104,7 +103,6 @@ function App() {
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
         <Router />
-        <ReactQueryDevtools initialIsOpen={true} />
       </ThemeProvider>
     </>
   );

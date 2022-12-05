@@ -148,7 +148,6 @@ interface ICoins {
 const Coins = () => {
   const { data } = useQuery<ICoins>(["allCoins"], bithumbCoins, {
     refetchInterval: 1000,
-    staleTime: 60 * 1000,
   });
 
   const CoinsListData = () => {
@@ -210,7 +209,7 @@ const Coins = () => {
       <LabelLi>
         <span>코인명</span>
         <span>실시간 시세</span>
-        <span>변동률(전일대비)</span>
+        <span>변동률 (전일대비)</span>
         <span>고가(24h)</span>
         <span>저가(24h)</span>
         <span>거래금액&darr;</span>

@@ -11,7 +11,6 @@ const Loading = styled.span`
   margin-top: 50px;
 `;
 
-
 export const Wrapper = styled.div`
   min-width: 800px;
   display: flex;
@@ -32,7 +31,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: black;
-`
+`;
 export const Title = styled.h2`
   font-size: 20px;
   color: white;
@@ -116,7 +115,7 @@ export const Price = () => {
 
   // 코인 정보
   const { isLoading: isLoading, data: info } = useQuery<ICoins>(
-    [("CoinPrice"), coinId],
+    ["CoinPrice", coinId],
     () => bithumbCoinInfo(`${coinId}`),
     { refetchInterval: 1000 }
   );
@@ -127,72 +126,74 @@ export const Price = () => {
   let fluctateRefValue = Number(info?.data.fluctate_24H);
   return (
     <>
-    {isLoading ? (
-      <Loading>Loading...</Loading>
-    ) : (
-    <Wrapper>
-        <NowPrice className={refValue > 0 ? "high" : "low"}>
-          <Title>
-            <Img
-              src={`https://coinicons-api.vercel.app/api/icon/${coinId?.toLowerCase()}`}
-            />
-            {coinId}/KWR
-          </Title>
-          <span>{Number(info?.data.closing_price).toLocaleString("KR-ko")}</span>
-          <span>전일대비</span>
-          <span>
-            {(
-              ((Number(info?.data.closing_price) -
-                Number(info?.data.prev_closing_price)) /
-                Number(info?.data.prev_closing_price)) *
-              100
-            ).toFixed(2)}
-            %
-          </span>
-          <span>
-            {refValue > 0 ? "▲ " : "▼ "}
-            {Math.abs(
-              Number(info?.data.prev_closing_price) -
-                Number(info?.data.closing_price)
-            ).toLocaleString("KR-ko")}
-          </span>
-        </NowPrice>
-        <PriceView>
-          <PriceCategory>
-            <PriceValue>
-              <span>변동률(24h)</span>
-              <span className={fluctateRefValue > 0 ? "high" : "low"}>
-                {Number(info?.data.fluctate_24H).toLocaleString("KR-ko")}%
-              </span>
-            </PriceValue>
-            <PriceValue>
-              <span>변동가(24h)</span>
-              <span className={fluctateRefValue > 0 ? "high" : "low"}>
-                {Number(info?.data.fluctate_24H).toLocaleString("KR-ko")}
-              </span>
-            </PriceValue>
-            <PriceValue>
-              <span>저가(24h)</span>
-              <span className="low">
-                {Number(info?.data.min_price).toLocaleString("KR-ko")}
-              </span>
-            </PriceValue>
-            <PriceValue>
-              <span>고가(24h)</span>
-              <span className="high">
-                {Number(info?.data.max_price).toLocaleString("KR-ko")}
-              </span>
-            </PriceValue>
-            <PriceValue>
-              <span>거래량(24h)</span>
-              <span>
-                {Number(info?.data.units_traded_24H).toLocaleString("KR-ko")}
-              </span>
-            </PriceValue>
-          </PriceCategory>
-        </PriceView>
-    </Wrapper>
-    )}
+      {isLoading ? (
+        <Loading>Loading...</Loading>
+      ) : (
+        <Wrapper>
+          <NowPrice className={refValue > 0 ? "high" : "low"}>
+            <Title>
+              <Img
+                src={`https://coinicons-api.vercel.app/api/icon/${coinId?.toLowerCase()}`}
+              />
+              {coinId}/KWR
+            </Title>
+            <span>
+              {Number(info?.data.closing_price).toLocaleString("KR-ko")}
+            </span>
+            <span>전일대비</span>
+            <span>
+              {(
+                ((Number(info?.data.closing_price) -
+                  Number(info?.data.prev_closing_price)) /
+                  Number(info?.data.prev_closing_price)) *
+                100
+              ).toFixed(2)}
+              %
+            </span>
+            <span>
+              {refValue > 0 ? "▲ " : "▼ "}
+              {Math.abs(
+                Number(info?.data.prev_closing_price) -
+                  Number(info?.data.closing_price)
+              ).toLocaleString("KR-ko")}
+            </span>
+          </NowPrice>
+          <PriceView>
+            <PriceCategory>
+              <PriceValue>
+                <span>변동률(24h)</span>
+                <span className={fluctateRefValue > 0 ? "high" : "low"}>
+                  {Number(info?.data.fluctate_24H).toLocaleString("KR-ko")}%
+                </span>
+              </PriceValue>
+              <PriceValue>
+                <span>변동가(24h)</span>
+                <span className={fluctateRefValue > 0 ? "high" : "low"}>
+                  {Number(info?.data.fluctate_24H).toLocaleString("KR-ko")}%
+                </span>
+              </PriceValue>
+              <PriceValue>
+                <span>저가(24h)</span>
+                <span className="low">
+                  {Number(info?.data.min_price).toLocaleString("KR-ko")}
+                </span>
+              </PriceValue>
+              <PriceValue>
+                <span>고가(24h)</span>
+                <span className="high">
+                  {Number(info?.data.max_price).toLocaleString("KR-ko")}
+                </span>
+              </PriceValue>
+              <PriceValue>
+                <span>거래량(24h)</span>
+                <span>
+                  {Number(info?.data.units_traded_24H).toLocaleString("KR-ko")}
+                </span>
+              </PriceValue>
+            </PriceCategory>
+          </PriceView>
+        </Wrapper>
+      )}
     </>
   );
 };
