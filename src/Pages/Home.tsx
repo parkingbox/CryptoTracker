@@ -128,8 +128,6 @@ export const Home = () => {
           <title>TO MARS!</title>
         </Helmet>
       )}
-
-      <Header />
       <CoinsList>{CoinsListData()}</CoinsList>
     </Contatiner>
   );

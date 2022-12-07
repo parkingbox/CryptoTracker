@@ -30,8 +30,6 @@ const Wrapper = styled.div``;
 
 const CoinInfo = () => {
   return (
-    <>
-    <Header />
     <Container>
       <CoinsWrapper>
         <Coins />
@@ -40,7 +38,6 @@ const CoinInfo = () => {
         <Route path="chart" element={<Chart />} />
       </Routes>
     </Container>
-    </>
   );
 };
 

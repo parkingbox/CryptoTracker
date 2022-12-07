@@ -7,6 +7,7 @@ import { Header } from "./Header";
 function Router() {
   return (
     <HashRouter>
+      <Header />
       <Routes>
         <Route path="/:coinId/*" element={<CoinInfo />} />
         <Route path="/" element={<Home />} />
