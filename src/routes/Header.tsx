@@ -36,7 +36,7 @@ const CheckBoxLabel = styled.label`
   margin-top: 10px;
   cursor: pointer;
   &::after {
-    content: '';
+    content: "";
     display: block;
     border-radius: 50%;
     width: 18px;
@@ -57,7 +57,7 @@ const CheckBox = styled.input`
   &:checked + ${CheckBoxLabel} {
     background: #4fbe79;
     &::after {
-      content: '';
+      content: "";
       display: block;
       border-radius: 50%;
       width: 18px;
@@ -68,7 +68,6 @@ const CheckBox = styled.input`
   }
 `;
 
-
 export const Header = () => {
   const setDarkAtom = useSetRecoilState(isDarkAtom);
   const isDark = useRecoilValue(isDarkAtom);
@@ -76,13 +75,11 @@ export const Header = () => {
 
   return (
     <Wrapper>
-      <Link to={"/"}>
-        {`Coin Tracker!`}
-      </Link>
+      <Link to={"/"}>{`Coin Tracker!`}</Link>
       <CheckBoxWrapper>
-            <CheckBox onClick={toggleDarkAtom} id="checkbox" type="checkbox" />
-            <CheckBoxLabel htmlFor="checkbox" />
-          </CheckBoxWrapper>
+        <CheckBox onClick={toggleDarkAtom} id="checkbox" type="checkbox" />
+        <CheckBoxLabel htmlFor="checkbox" />
+      </CheckBoxWrapper>
     </Wrapper>
   );
 };

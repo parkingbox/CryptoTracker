@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { bithumbCoins } from "../api";
+import { Header } from "../Routes/Header";
 
 const Contatiner = styled.div`
   padding: 0px 20px;
@@ -12,22 +13,6 @@ const Contatiner = styled.div`
   @media only screen and (max-width: 430px) {
     max-width: 350px;
     padding: 0px 10px;
-  }
-`;
-
-const Header = styled.header`
-  height: 23vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3px;
   }
 `;
 
@@ -143,6 +128,8 @@ export const Home = () => {
           <title>TO MARS!</title>
         </Helmet>
       )}
+
+      <Header />
       <CoinsList>{CoinsListData()}</CoinsList>
     </Contatiner>
   );
