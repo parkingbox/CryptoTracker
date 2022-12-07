@@ -1,5 +1,5 @@
 <div align='center'>
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Coin Traker&fontSize=80&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Coin Traker&fontSize=80&animation=fadeIn" />
 </div>
 
 <p align='center'>
