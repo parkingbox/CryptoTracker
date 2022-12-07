@@ -39,7 +39,7 @@ export const LabelLi = styled.li`
   font-size: 1.4rem;
   background-color: ${(props) => props.theme.color.bg.lv2};
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid ${(props) => props.theme.color.grey.lv1};
+  border-bottom: 1px solid ${(props) => props.theme.color.grey};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   span {
@@ -65,20 +65,9 @@ export const Img = styled.img`
   height: 12px;
   margin: 0 3px -1px -5px;
 `;
-const Search = styled.input`
-  width: 300px;
-  height: 50px;
-  border: none;
-  border-radius: 50px;
-  background: white;
-  margin: 0 10px 10px 0;
-  outline: none;
-  padding: 0 60px 0 20px;
-  font-size: 15px;
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-`;
+
 export const Coin = styled.li`
-  border-bottom: 1px solid ${(props) => props.theme.color.grey.lv1};
+  border-bottom: 1px solid ${(props) => props.theme.color.grey};
   a {
     display: flex;
     align-items: center;
@@ -100,7 +89,7 @@ export const Coin = styled.li`
     }
   }
   &:hover {
-    background-color: ${(props) => props.theme.color.bg.lv3};
+    background-color: ${(props) => props.theme.color.grey};
   }
 `;
 
@@ -114,7 +103,7 @@ export const RealPrice = styled.span`
 `;
 
 export const Fluctate = styled(RealPrice)`
-  min-width: 120px;
+  min-width: 150px;
   span + span {
     margin-left: 10px;
   }
@@ -132,10 +121,6 @@ export const High = styled(RealPrice)`
 
 export const Low = styled(RealPrice)`
   color: ${(props) => props.theme.color.accent.low};
-`;
-
-export const TradeValue = styled(RealPrice)`
-  min-width: 100px;
 `;
 
 interface ICoins {
@@ -205,9 +190,6 @@ const Coins = () => {
             <Low>
               {Number(data?.data[coin].min_price).toLocaleString("KR-ko")}
             </Low>
-            <TradeValue>
-              {Number(data?.data[coin].acc_trade_value_24H).toFixed(0)}
-            </TradeValue>
           </Link>
         </Coin>
       );
@@ -224,7 +206,6 @@ const Coins = () => {
         <span>변동률 (전일대비)</span>
         <span>고가(24h)</span>
         <span>저가(24h)</span>
-        <span>거래금액&darr;</span>
       </LabelLi>
       <CoinItems>{CoinsListData()}</CoinItems>
     </Container>
