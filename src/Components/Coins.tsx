@@ -8,6 +8,7 @@ import { useSetRecoilState } from "recoil";
 import { bithumbCoins } from "../api";
 
 export const Container = styled.div`
+  font-family: "Raleway Sans";
   max-width: 1200px;
   margin: 0 auto 10vh;
   @media screen and (max-width: 1250px) {
@@ -64,7 +65,18 @@ export const Img = styled.img`
   height: 12px;
   margin: 0 3px -1px -5px;
 `;
-
+const Search = styled.input`
+  width: 300px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  background: white;
+  margin: 0 10px 10px 0;
+  outline: none;
+  padding: 0 60px 0 20px;
+  font-size: 15px;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+`;
 export const Coin = styled.li`
   border-bottom: 1px solid ${(props) => props.theme.color.grey.lv1};
   a {
@@ -151,13 +163,13 @@ const Coins = () => {
   });
 
   const CoinsListData = () => {
-    let components = [];
+    let coinlist = [];
     for (let coin in data?.data) {
       const refValue =
         (Number(data?.data[coin].closing_price) -
           Number(data?.data[coin].prev_closing_price)) /
         Number(data?.data[coin].prev_closing_price);
-      components.push(
+      coinlist.push(
         <Coin key={coin}>
           <Link to={`/${coin}/chart`} state={{ name: coin }}>
             <CoinTitle>
@@ -200,8 +212,8 @@ const Coins = () => {
         </Coin>
       );
     }
-    components.pop();
-    return components;
+    coinlist.splice(40);
+    return coinlist;
   };
 
   return (

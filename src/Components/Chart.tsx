@@ -7,8 +7,10 @@ import { bithumbCandlestick } from "../api";
 import { isDarkAtom } from "../atoms";
 import { Price } from "./Price";
 import { useState } from "react";
+import Coins from "./Coins";
 
 export const Wrapper = styled.div`
+  font-family: "Raleway Sans";
   padding: 1rem 2rem 0;
   background-color: ${(props) => props.theme.color.bg.lv2};
   border-radius: 10px;
@@ -20,7 +22,7 @@ export const Wrapper = styled.div`
 
 const Chart = () => {
   const { coinId } = useParams();
-  const { data } = useQuery<any>(["candlestick", coinId], () =>
+  const { data } = useQuery<any>(["Area", coinId], () =>
     bithumbCandlestick(`${coinId}`)
   );
   const isDark = useRecoilValue(isDarkAtom);
@@ -49,7 +51,7 @@ const Chart = () => {
               },
               dataLabels: { enabled: false },
               markers: {
-                size:0
+                size: 0,
               },
               xaxis: { type: "datetime" },
               yaxis: {

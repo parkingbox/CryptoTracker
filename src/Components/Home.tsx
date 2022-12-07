@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { listenerCount } from "process";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -43,11 +44,12 @@ const CoinsList = styled.ul`
 
 const Coin = styled.li`
   background-color: ${(props) => props.theme.color.grey.lv1};
-  color: ${(props) => props.theme.color.text.lv1};
+  color: ${(props) => props.theme.color.text.lv2};
   border-radius: 15px;
   margin-bottom: 15px;
   transition: all 0.2s ease-in;
-  width: 100px;
+  width: 200px;
+  font-size: 25px;
   a {
     transition: color 0.2s ease-in;
     display: flex;
@@ -93,23 +95,20 @@ const Title = styled(Img)`
   }
 `;
 
-
 interface ICoins {
   data: {
-    [key: string]: {
-      opening_price: number;
-      closing_price: number;
-      min_price: number;
-      max_price: number;
-      units_traded: number;
-      acc_trade_value: number;
-      prev_closing_price: number;
-      units_traded_24H: number;
-      acc_trade_value_24H: number;
-      fluctate_24H: number;
-      fluctate_rate_24H: number;
-      date: string;
-    };
+    opening_price: number;
+    closing_price: number;
+    min_price: number;
+    max_price: number;
+    units_traded: number;
+    acc_trade_value: number;
+    prev_closing_price: number;
+    units_traded_24H: number;
+    acc_trade_value_24H: number;
+    fluctate_24H: number;
+    fluctate_rate_24H: number;
+    date: string;
   };
 }
 
@@ -117,9 +116,9 @@ export const Home = () => {
   const { isLoading, data } = useQuery<ICoins>(["allCoins"], bithumbCoins);
 
   const CoinsListData = () => {
-    let components = [];
+    let coinlist = [];
     for (let coin in data?.data) {
-      components.push(
+      coinlist.push(
         <CoinsList className="list">
           <Coin key={coin}>
             <Link to={`/${coin}/chart`} state={{ name: coin }}>
@@ -132,8 +131,8 @@ export const Home = () => {
         </CoinsList>
       );
     }
-    components.pop();
-    return components;
+    coinlist.splice(40);
+    return coinlist;
   };
   return (
     <Contatiner id="hacker-list">
@@ -141,7 +140,7 @@ export const Home = () => {
         <Loader>Loading...</Loader>
       ) : (
         <Helmet>
-          <title>CoinTracker</title>
+          <title>TO MARS!</title>
         </Helmet>
       )}
       <CoinsList>{CoinsListData()}</CoinsList>

@@ -114,16 +114,16 @@ export const Price = () => {
   const { coinId } = useParams();
 
   // 코인 정보
-  const { isLoading: isLoading, data: info } = useQuery<ICoins>(
+  const { isLoading, data } = useQuery<ICoins>(
     ["CoinPrice", coinId],
     () => bithumbCoinInfo(`${coinId}`),
     { refetchInterval: 1000 }
   );
   let refValue =
-    (Number(info?.data.closing_price) - Number(info?.data.prev_closing_price)) /
-    Number(info?.data.prev_closing_price);
+    (Number(data?.data.closing_price) - Number(data?.data.prev_closing_price)) /
+    Number(data?.data.prev_closing_price);
 
-  let fluctateRefValue = Number(info?.data.fluctate_24H);
+  let fluctateRefValue = Number(data?.data.fluctate_24H);
   return (
     <>
       {isLoading ? (
@@ -138,14 +138,14 @@ export const Price = () => {
               {coinId}/KWR
             </Title>
             <span>
-              {Number(info?.data.closing_price).toLocaleString("KR-ko")}
+              {Number(data?.data.closing_price).toLocaleString("KR-ko")}
             </span>
             <span>전일대비</span>
             <span>
               {(
-                ((Number(info?.data.closing_price) -
-                  Number(info?.data.prev_closing_price)) /
-                  Number(info?.data.prev_closing_price)) *
+                ((Number(data?.data.closing_price) -
+                  Number(data?.data.prev_closing_price)) /
+                  Number(data?.data.prev_closing_price)) *
                 100
               ).toFixed(2)}
               %
@@ -153,8 +153,8 @@ export const Price = () => {
             <span>
               {refValue > 0 ? "▲ " : "▼ "}
               {Math.abs(
-                Number(info?.data.prev_closing_price) -
-                  Number(info?.data.closing_price)
+                Number(data?.data.prev_closing_price) -
+                  Number(data?.data.closing_price)
               ).toLocaleString("KR-ko")}
             </span>
           </NowPrice>
@@ -163,31 +163,32 @@ export const Price = () => {
               <PriceValue>
                 <span>변동률(24h)</span>
                 <span className={fluctateRefValue > 0 ? "high" : "low"}>
-                  {Number(info?.data.fluctate_24H).toLocaleString("KR-ko")}%
+                  {Number(data?.data.fluctate_rate_24H).toLocaleString("KR-ko")}
+                  %
                 </span>
               </PriceValue>
               <PriceValue>
                 <span>변동가(24h)</span>
                 <span className={fluctateRefValue > 0 ? "high" : "low"}>
-                  {Number(info?.data.fluctate_24H).toLocaleString("KR-ko")}%
+                  {Number(data?.data.fluctate_24H).toLocaleString("KR-ko")}
                 </span>
               </PriceValue>
               <PriceValue>
                 <span>저가(24h)</span>
                 <span className="low">
-                  {Number(info?.data.min_price).toLocaleString("KR-ko")}
+                  {Number(data?.data.min_price).toLocaleString("KR-ko")}
                 </span>
               </PriceValue>
               <PriceValue>
                 <span>고가(24h)</span>
                 <span className="high">
-                  {Number(info?.data.max_price).toLocaleString("KR-ko")}
+                  {Number(data?.data.max_price).toLocaleString("KR-ko")}
                 </span>
               </PriceValue>
               <PriceValue>
                 <span>거래량(24h)</span>
                 <span>
-                  {Number(info?.data.units_traded_24H).toLocaleString("KR-ko")}
+                  {Number(data?.data.units_traded_24H).toLocaleString("KR-ko")}
                 </span>
               </PriceValue>
             </PriceCategory>
