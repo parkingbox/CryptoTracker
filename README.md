@@ -12,16 +12,16 @@
 
 [-->🏠<--](http://parkingbox.github.io/CryptoTracker/)
 
-Main
+Home
 
 <p align='center'>
-  <img src="https://user-images.githubusercontent.com/101634719/206240712-29ea64b9-f9ef-401a-849e-4c3e0c7d93a8.gif" width=80% height=500 alt='logo'/>
+  <img src="https://user-images.githubusercontent.com/101634719/206242712-0264cce3-e5e1-48d9-9645-61567e9f15d7.gif" width=80% height=500 alt='logo'/>
 </p>
 
 Detail
 
 <p align='center'>
-  <img src="https://user-images.githubusercontent.com/101634719/206240328-685b3933-4390-44a7-99fd-d1a32ed266ea.gif" width=80% height=500 alt='logo'/>
+  <img src="https://user-images.githubusercontent.com/101634719/206242721-662580c6-5706-4245-a6fb-67e2e8caaeeb.gif" width=80% height=500 alt='logo'/>
 </p>
 </div>
 
