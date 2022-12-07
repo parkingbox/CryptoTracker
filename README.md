@@ -15,13 +15,13 @@
 Main
 
 <p align='center'>
-  <img src="https://user-images.githubusercontent.com/101634719/206240712-29ea64b9-f9ef-401a-849e-4c3e0c7d93a8.gif" width=300 height=500 alt='logo'/>
+  <img src="https://user-images.githubusercontent.com/101634719/206240712-29ea64b9-f9ef-401a-849e-4c3e0c7d93a8.gif" width=80% height=500 alt='logo'/>
 </p>
 
 Detail
 
 <p align='center'>
-  <img src="https://user-images.githubusercontent.com/101634719/206240328-685b3933-4390-44a7-99fd-d1a32ed266ea.gif" width=300 height=500 alt='logo'/>
+  <img src="https://user-images.githubusercontent.com/101634719/206240328-685b3933-4390-44a7-99fd-d1a32ed266ea.gif" width=80% height=500 alt='logo'/>
 </p>
 </div>
 
