@@ -89,7 +89,7 @@ export const Coin = styled.li`
     }
   }
   &:hover {
-    background-color: ${(props) => props.theme.color.grey};
+    background-color: ${(props) => props.theme.color.bg.lv3};
   }
 `;
 
