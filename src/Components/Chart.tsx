@@ -44,22 +44,33 @@ const Chart = () => {
               },
             ]}
             options={{
+              stroke: {
+                curve: "smooth",
+              },
               chart: {
                 toolbar: { show: false },
                 zoom: { autoScaleYaxis: true },
                 background: "transparent",
+                stacked: true,
               },
+              colors: ["#00BAEC"],
               dataLabels: { enabled: false },
               markers: {
                 size: 0,
               },
-              xaxis: { type: "datetime" },
+              xaxis: {
+                type: "datetime",
+                labels: {
+                  style: { colors: "#757373" },
+                },
+              },
               yaxis: {
                 opposite: true,
                 labels: {
                   formatter: function (val, index) {
                     return val.toFixed(2);
                   },
+                  style: { colors: "#757373" },
                 },
               },
             }}
