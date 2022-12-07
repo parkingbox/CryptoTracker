@@ -1,4 +1,6 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Coin Traker&fontSize=80&animation=fadeIn" />
+<p align='center'>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Coin Traker&fontSize=80&animation=fadeIn" />
+</p>
 
 <p align='center'>
   <img src="public/img/favicon.png" width=35% alt='logo'/>
