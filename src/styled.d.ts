@@ -17,10 +17,7 @@ declare module 'styled-components' {
         high: string;
         low: string;
       };
-      grey: {
-        lv1: string;
-        lv2: string;
-      };
+      grey: string;
       mode: {
         lv1: string;
         lv2: string;
