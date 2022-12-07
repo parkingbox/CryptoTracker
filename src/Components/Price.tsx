@@ -11,7 +11,7 @@ const Loading = styled.span`
   margin-top: 50px;
 `;
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   min-width: 800px;
   display: flex;
   align-items: center;
@@ -32,12 +32,11 @@ const Container = styled.div`
   align-items: center;
   background-color: black;
 `;
-export const Title = styled.h2`
+const Title = styled.h2`
   font-size: 20px;
-  color: white;
 `;
 
-export const NowPrice = styled.div`
+const NowPrice = styled.div`
   font-size: 1.4rem;
   span + span {
     margin-right: 7px;

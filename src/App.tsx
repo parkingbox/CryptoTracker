@@ -1,5 +1,5 @@
 import { ThemeProvider, } from "styled-components";
-import Router from "./routes/Router";
+import Router from "./Routes/Router";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { darkTheme, lightTheme } from "./theme";
 import { useRecoilValue } from "recoil";

@@ -1,16 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CoinInfo from "../Components/CoinInfo";
-import { Home } from "../Components/Home";
-import { Nav } from "../Components/Nav";
+import Chart from "../Components/Chart";
+import CoinInfo from "../Pages/CoinInfo";
+import { Home } from "../Pages/Home";
+import { Header } from "./Header";
 
-interface IRouterProps {}
-function Router({}: IRouterProps) {
+function Router() {
   return (
     <BrowserRouter>
-      <Nav />
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/:coinId/*" element={<CoinInfo />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

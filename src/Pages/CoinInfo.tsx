@@ -1,7 +1,7 @@
-import Chart from "./Chart";
+import Chart from "../Components/Chart";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import Coins from "./Coins";
+import Coins from "../Components/Coins";
 
 const Container = styled.div`
   width: 1200px;
@@ -29,12 +29,12 @@ const CoinsWrapper = styled.div`
 const CoinInfo = () => {
   return (
     <Container>
-      <Routes>
-        <Route path="chart" element={<Chart />} />
-      </Routes>
       <CoinsWrapper>
         <Coins />
       </CoinsWrapper>
+      <Routes>
+        <Route path="chart" element={<Chart />} />
+      </Routes>
     </Container>
   );
 };
