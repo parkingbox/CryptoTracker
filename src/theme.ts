@@ -9,7 +9,7 @@ export const lightTheme: DefaultTheme = {
     bg: {
       lv1: "#F2E0D0",
       lv2: "#ffffff",
-      lv3: "#bfa893",
+      lv3: "#eeeeee",
     },
     accent: {
       high: "#e02343",
