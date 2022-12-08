@@ -5,6 +5,7 @@ import Coins from "../Components/Coins";
 import { Header } from "../Routes/Header";
 
 const Container = styled.div`
+  font-family: "Gowun Dodum", sans-serif;
   width: 1200px;
   margin: 0 auto;
   display: grid;

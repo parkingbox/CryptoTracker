@@ -7,7 +7,7 @@ import { bithumbCoins } from "../api";
 import { Header } from "../Routes/Header";
 
 const Contatiner = styled.div`
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: "Gowun Dodum", sans-serif;
   padding: 0px 20px;
   max-width: 1080px;
   margin: 0 auto;

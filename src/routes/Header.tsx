@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.header`
   height: 15vh;
-  
+  font-family: "Gowun Dodum", sans-serif;
   font-size: 50px;
   text-align: center;
   display: flex;
@@ -20,6 +20,7 @@ const Wrapper = styled.header`
     padding: 0 20px;
   }
 `;
+
 const CheckBoxWrapper = styled.div`
   position: relative;
   margin-top: 10px;

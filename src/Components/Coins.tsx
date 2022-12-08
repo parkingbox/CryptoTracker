@@ -8,7 +8,7 @@ import { useSetRecoilState } from "recoil";
 import { bithumbCoins } from "../api";
 
 export const Container = styled.div`
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: "Gowun Dodum", sans-serif;
   max-width: 1200px;
   margin: 0 auto 10vh;
   @media screen and (max-width: 1250px) {
