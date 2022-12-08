@@ -10,7 +10,6 @@ import { useState } from "react";
 import Coins from "./Coins";
 
 export const Wrapper = styled.div`
-  font-family: "Raleway Sans";
   padding: 1rem 2rem 0;
   background-color: ${(props) => props.theme.color.bg.lv2};
   border-radius: 10px;

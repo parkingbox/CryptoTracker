@@ -12,6 +12,7 @@ const Loading = styled.span`
 `;
 
 const Wrapper = styled.div`
+  font-family: "Gowun Dodum", sans-serif;
   min-width: 800px;
   display: flex;
   align-items: center;

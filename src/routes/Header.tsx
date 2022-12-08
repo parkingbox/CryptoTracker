@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.header`
   height: 15vh;
-  font-family: "Raleway Sans";
+  
   font-size: 50px;
   text-align: center;
   display: flex;
