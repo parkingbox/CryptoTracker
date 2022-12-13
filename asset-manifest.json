@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/CryptoTracker/static/js/main.07a84260.js",
+    "main.js": "/CryptoTracker/static/js/main.cd541584.js",
     "index.html": "/CryptoTracker/index.html",
-    "main.07a84260.js.map": "/CryptoTracker/static/js/main.07a84260.js.map"
+    "main.cd541584.js.map": "/CryptoTracker/static/js/main.cd541584.js.map"
   },
   "entrypoints": [
-    "static/js/main.07a84260.js"
+    "static/js/main.cd541584.js"
   ]
 }
